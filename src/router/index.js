@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: "/portal-istana",
       name: "Portal-Istana",
-      component: () => import("../components/PortalIstana/PortalIstana.vue"),
+      component: () => import("../components/portal-istana/PortalIstana.vue"),
       meta: {
         title: "Portal Istana",
         layout: "HomeLayout",
@@ -25,7 +25,7 @@ const router = createRouter({
     {
       path: "/yuubaca",
       name: "YuuBaca",
-      component: () => import("../components/YuuBaca/YuuBaca.vue"),
+      component: () => import("../components/yuubaca/YuuBaca.vue"),
       meta: {
         title: "Yuubaca",
         layout: "HomeLayout",
