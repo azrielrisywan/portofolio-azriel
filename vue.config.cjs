@@ -1,7 +1,9 @@
 const { fileURLToPath, URL } = require('url');
-const { defineConfig } = require('@vue/cli-service');
+const { createRequire } = require('module');
 
-module.exports = defineConfig({
+const require = createRequire(import.meta.url);
+
+module.exports = {
   transpileDependencies: true,
   configureWebpack: {
     resolve: {
@@ -10,4 +12,4 @@ module.exports = defineConfig({
       },
     },
   },
-});
+};
