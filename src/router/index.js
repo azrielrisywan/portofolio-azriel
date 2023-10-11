@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+import HomeDashboard from "@/components/HomeDashboard.vue";
+import PortalIstana from "@/components/portal-istana/PortalIstana.vue";
+import YuuBaca from "@/components/yuubaca/YuuBaca.vue";
 
 const router = createRouter({
   history: createWebHistory('/'),
@@ -7,7 +10,7 @@ const router = createRouter({
     {
       path: "/",
       name: "Home",
-      component: () => import("/vercel/path0/src/components/HomeDashboard.vue"),
+      component: () => HomeDashboard,
       meta: {
         title: "Home",
         layout: "HomeLayout",
@@ -16,7 +19,7 @@ const router = createRouter({
     {
       path: "/portal-istana",
       name: "Portal-Istana",
-      component: () => import("/vercel/path0/src/components/portal-istana/PortalIstana.vue"),
+      component: () => PortalIstana,
       meta: {
         title: "Portal Istana",
         layout: "HomeLayout",
@@ -25,7 +28,7 @@ const router = createRouter({
     {
       path: "/yuubaca",
       name: "YuuBaca",
-      component: () => import("/vercel/path0/src/components/yuubaca/YuuBaca.vue"),
+      component: () => YuuBaca,
       meta: {
         title: "Yuubaca",
         layout: "HomeLayout",
