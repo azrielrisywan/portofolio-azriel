@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: "/",
       name: "Home",
-      component: () => import("@/components/HomeDashboard.vue"),
+      component: () => import("/vercel/path0/src/components/HomeDashboard.vue"),
       meta: {
         title: "Home",
         layout: "HomeLayout",
@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: "/portal-istana",
       name: "Portal-Istana",
-      component: () => import("@/components/portal-istana/PortalIstana.vue"),
+      component: () => import("/vercel/path0/src/components/portal-istana/PortalIstana.vue"),
       meta: {
         title: "Portal Istana",
         layout: "HomeLayout",
@@ -25,7 +25,7 @@ const router = createRouter({
     {
       path: "/yuubaca",
       name: "YuuBaca",
-      component: () => import("@/components/yuubaca/YuuBaca.vue"),
+      component: () => import("/vercel/path0/src/components/yuubaca/YuuBaca.vue"),
       meta: {
         title: "Yuubaca",
         layout: "HomeLayout",
