@@ -1,6 +1,5 @@
 <template>
   <div class="home-dashboard">
-    <!-- <div class="h-screen pt-10 sm:pt-0 pb-10 bg-gradient-to-b from-[#223d32] to-[#ffffff]">  -->
     <div class="h-screen pt-10 sm:pt-0 pb-10"> 
       <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center md:gap-20 p-20 h-full">
       <div
@@ -35,71 +34,25 @@
         </div>
       </div>
       <!-- project list -->
-      <div class="flex flex-col bg-white px-12 bg-gradient-to-t from-[#223d32] to-[#ffffff] py-10">
-        <div class="flex flex-col px-20 md:px-10 md:flex-row items-center justify-center gap-6">
-          <p class="text-[35px] lg:text-[40px] xl:text-[50px] font-bold leading-tight mt-5 sm:mt-0 ">
-            My Projects 
+      <div class="container mx-auto items-center md:gap-20 p-20 h-full">
+        <div class="flex justify-center mb-4">
+          <p class="text-center text-[20px] lg:text-[25px] xl:text-[35px] font-bold leading-tight mt-5 sm:mt-0">
+            Projects 
           </p>
-          <div class="flex-none overflow-x-auto">
-            <div class="flex p-10">
-              <div class="w-80 mx-8">
-                <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" class="rounded-t-xl"/>
-                <div class="px-9 pt-10 pb-14 bg-yellow-500 rounded-b-lg">
-                  <div class="text-white space-y-4">
-                    <h3 class="text-xl font-bold lead-xl bold">Card Title</h3>
-                    <div class="text-lg font-light">Card subtitle with a long long long long long long text</div>
-                  </div>
-                  <div class="flex justify-between pt-8">
-                    <ul class="flex flex-col gap-y-2.5">
-                      <li class="flex space-x-3 text-white">
-                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" class="w-6 h-6"/>
-                          <span class="paragraph-l font-bold">Item 1</span>
-                      </li>
-                          <li class="flex space-x-3 text-white">
-                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" class="w-6 h-6"/>
-                          <span class="paragraph-l font-bold">Item 1</span>
-                      </li>
-                          <li class="flex space-x-3 text-white">
-                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" class="w-6 h-6"/>
-                          <span class="paragraph-l font-bold">Item 1</span>
-                      </li>
-                    </ul>
-                    <div class="flex flex-col justify-end">
-                        <a href="#" class="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full">Learn More</a>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-              <div class="w-80 mx-8">
-                <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" class="rounded-t-xl"/>
-                <div class="px-9 pt-10 pb-14 bg-yellow-500 rounded-b-lg">
-                  <div class="text-white space-y-4">
-                    <h3 class="text-xl font-bold lead-xl bold">Card Title</h3>
-                    <div class="text-lg font-light">Card subtitle with a long long long long long long text</div>
-                  </div>
-                  <div class="flex justify-between pt-8">
-                    <ul class="flex flex-col gap-y-2.5">
-                      <li class="flex space-x-3 text-white">
-                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" class="w-6 h-6"/>
-                          <span class="paragraph-l font-bold">Item 1</span>
-                      </li>
-                          <li class="flex space-x-3 text-white">
-                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" class="w-6 h-6"/>
-                          <span class="paragraph-l font-bold">Item 1</span>
-                      </li>
-                          <li class="flex space-x-3 text-white">
-                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png" alt="checked--v1" class="w-6 h-6"/>
-                          <span class="paragraph-l font-bold">Item 1</span>
-                      </li>
-                    </ul>
-                    <div class="flex flex-col justify-end">
-                        <a href="#" class="py-3 px-6 bg-white text-primary-200 paragraph-m  rounded-full">Learn More</a>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-            </div>
-          </div> 
+        </div>
+        <div :class="cardStyle(projects.length)">
+          <!-- card-start -->
+          <div
+            class="max-w-[400px] w-[400px] md:max-w-[450px] md:w-[450px] lg:max-w-[500px] lg:w-[500px] flex-none p-10"
+            v-for="(project, index) in projects"
+            :key="index"
+          >
+            <router-link :to="project.link">
+              <img src="https://cdn.pixabay.com/photo/2023/08/15/11/47/mushroom-8191823_1280.jpg" alt="Featured Image 1" class="rounded-xl object-cover w-full h-40 md:h-48 lg:h-56"/>
+              <h4 class="text-xl leading-tight pt-4">{{ project.name }}</h4>
+            </router-link>
+          </div>
+          <!-- card-end -->
         </div>
       </div>
     </div>
@@ -107,6 +60,43 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
+const projects = ref([{
+  name: "YuuBaca",
+  link: "/yuubaca"
+}, {
+  name: "Portal Istana",
+  link: "/portal-istana"
+}]);
+
+const scrollLeft = () => {
+  const container = document.querySelector(".overflow-x-auto");
+  container.scrollBy({
+    left: -container.offsetWidth,
+    behavior: "smooth",
+  });
+};
+
+const scrollRight = () => {
+  const container = document.querySelector(".overflow-x-auto");
+  container.scrollBy({
+    left: container.offsetWidth,
+    behavior: "smooth",
+  });
+};
+
+const cardStyle = (projectsLength) => {
+  return "flex flex-nowrap overflow-x-auto gap-4 " + (projectsLength > 2 ? "" : "justify-center");
+}
+
+export default {
+  name: "HomeDashboard",
+  setup() {
+    return { projects, scrollLeft, scrollRight, cardStyle };
+  },
+};
+
 
 </script>
 
