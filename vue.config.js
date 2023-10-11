@@ -1,14 +1,14 @@
-import { fileURLToPath, URL } from "url";
+import { fileURLToPath, URL } from 'url';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
+const { defineConfig } = require('@vue/cli-service');
 
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
+export default defineConfig({
   transpileDependencies: true,
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
-  }
-})
+  },
+});
